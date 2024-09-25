@@ -1,0 +1,44 @@
+<!DOCTYPE html>      
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Next-page.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <div id="showvalue">
+        <h1>Items: </h1>
+    </div>
+
+    <script>    
+        let show = document.querySelector("#showvalue")
+        let get = JSON.parse(localStorage.getItem("Luci")) || []
+
+        function data(){
+            get.map((val)=>{
+            console.log(val)
+            let tech = document.createElement('table')      
+            tech.innerHTML = `  <img src="${val.images}" alt='myimage'>
+                                <h2>${val.title}</h2>
+                                <p>${val.description}</p>
+                                <h4>$${val.price}</h4>
+                                <button onclick="addToCart(${val.id})">Add to Cart</button>
+                            `;
+            show.appendChild(tech) 
+        })
+    }
+    data()
+
+    function addToCart(id){
+        console.log(id)
+    }
+
+        
+        
+        </script>
+</body>
+</html>
